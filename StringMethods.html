@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice</title>
+    <script>
+
+// String method: concat
+    var foo = "this";
+    var bar = "is";
+    var ted = "a";
+    var cat = "cat";
+
+    function stringConcat() {
+      var total = '';
+
+      for (var i = 0; i < arguments.length; i++) {
+        total = total + arguments[i];
+      }
+      return total;
+    }
+
+    console.log("concat:",stringConcat(foo, bar, ted, cat));
+
+// String method: endsWith
+    var str = "This is a string that I am testing.";
+
+    function endsWith(x,y,z) {
+      var length_y = y.length;
+      var length_x = x.length;
+      var xmatch = x.substr((length_x-length_y), length_y);
+      var zmatch = x.substr((z-length_y),length_y);
+
+    if(arguments.length < 3) {
+      if(xmatch === y) {return "true";}
+        else {return "false";}
+      }
+    else if (zmatch === y) {return "true";}
+      else {return "false";}
+    };
+
+    console.log("ends with:",endsWith(str, "is", 7));
+
+//String method: includes
+    var short = "runs"; //search
+    var long = "The dog runs fast."; //here
+
+    function includes(search,here) {
+      // var position = here.indexOf(search);
+      var position = here.search(search);
+      var substring = here.substr(position,search.length);
+
+      if (position === -1) {
+        return "false";}
+        else if (substring === search)
+          {return "true";}
+            else {return "false";}
+    };
+
+    console.log("includes:",includes(short,long));
+
+//String method: indexOf
+  var temp = "Here is a string."; //x
+  var test = ""; //y
+
+  function indexOf(x,y,f) {
+    var index = x.search(y);
+    var length_x = x.length;
+
+    if (y === "") {
+        if (f < length_x)
+          {return f;}
+          else /*if (f>=length_x) */{
+            return length_x;}}
+
+    else {return index;}
+  };
+
+  console.log("index of:",indexOf(temp,test,16));
+
+//String method: toUpperCase
+  function toUpperCase(str) {
+    var s = '';
+    for (var i = 0; i < str.length; i++) {
+      var ascii = str.charCodeAt(i);
+      if (ascii >= 97 && ascii <= 122) {
+        ascii -= 32;
+        }
+        s += String.fromCharCode(ascii);
+    }
+    return s;
+  }
+
+  console.log("to upper case: ", toUpperCase("hello, world!"));
+
+  //Array method: Push
+  var numbers = [1, 2, 3, 4, 5];
+
+  function push() {
+    var arr = arguments[0];
+    currentLength = arr.length;
+    for (i = 1; i < arguments.length; i++) {
+      arr[arr.length] = arguments[i];
+    }
+    return arr;
+  }
+
+  console.log("arraypush: ",push(numbers, 6, 7, 8, 9, 10, 11));
+
+//Array concat
+  var arr1 = [1,2,3,4];
+  var arr2 = [3,4,5,6];
+
+  function arrayConcat(array1, array2) {
+
+    for(i = 0; i < array2.length; i++) {
+      array1[array1.length] = array2[i];
+    }
+    return array1;
+  }
+
+  console.log("arrayconcat:" ,arrayConcat(arr1,arr2));
+
+  //Array join
+  var arr3 = ['Wind', 'Rain', 'Fire'];
+
+  function arrayJoin(array,separator) {
+
+    if (separator == null) {
+      return array.toString();
+    }
+    else if (separator != null) {
+      var strings = '';
+      for(i = 0; i < array.length; i++) {
+        if(i != array.length - 1) {
+      strings = strings + array[i].toString() + separator; }
+      else {strings = strings + array[i].toString();}}
+      return strings;
+    }
+  }
+
+  console.log("arrayjoin: ", arrayJoin(arr3,'+'));
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
